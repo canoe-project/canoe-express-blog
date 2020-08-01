@@ -23,7 +23,11 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+html{
+    font-size: 16pt;
+}
 body {
+    
 	line-height: 1;
 }
 ol, ul {
@@ -42,22 +46,81 @@ table {
 	border-spacing: 0;
 }
 
-#wrapper {
+/* #wrapper {
     display: inline-block;
     position: relative;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    margin-top: 7.8125%;
-    margin-left: 7.8125%;
-    margin-right: 7.8125%;
-    padding: 2.604166666666667%;
+    width: 100%;
+    height: 100%;
     border-top-right-radius: 80px;
     border-top-left-radius: 80px;
     background-color: #c1a68b;
     background-size: auto;
     z-index: -1;
-    /* overflow: hidden; */
+    overflow: hidden;
+} */
+
+/* #wrapper{
+    position: relative;
+    top: 9.375rem;
+	margin: 0 auto;
+	width: calc(100% - 9.375rem);
+	max-width: 101.250rem;
 }
 
+#wrapper > .bg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #c1a68b;
+    background-size: auto,								auto,														100% auto;
+    z-index: -1;
+    border-top-right-radius: 3rem;
+    border-top-left-radius: 3rem;
+}
+
+#intro{
+    position: relative;
+    margin-block-start: 3.125rem;
+    margin-left: auto;
+    margin-right: auto;
+    top: 3.125rem;
+    width: calc(100% - 6.250rem);
+    padding: 3.125rem;
+    background-color: #ffffff;
+    z-index: 1;
+} */
+
+#wrapper{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#wrapper > #bg {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex: auto;
+    margin: 9.375rem 9.375rem 0;
+    background-color: #c1a68b;
+    border-top-right-radius: 3rem;
+    border-top-left-radius: 3rem;   
+
+}
+#menuButton{
+    background-image: url(assets\image\menuButton.svg);
+    /* width: 46px;
+    height: 30px; */
+}
+#intro{
+}
+
+.content{
+    flex: auto;
+    margin: 3.125rem 3.125rem 0;
+    background-color: #ffffff;
+
+}
