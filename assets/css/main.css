@@ -57,10 +57,12 @@ li{
     background-color: #F7F7F7;
     /* margin: 1rem 0; */
     padding: 1rem;
-    font-size: 24pt;
+    font-size: 21pt;
 }
 li::before{
-    
+    width: auto;
+    height: auto;
+    /* background-image: ; */
 }
 .firstItem{
     background-color: #58859C;
@@ -72,7 +74,7 @@ li::before{
     height: 100%;
 }
 .frame{
-   margin: 0 7rem;
+   margin: 0 5rem;
 
 }
 
@@ -144,7 +146,7 @@ li::before{
     display: flex;
     flex-direction:row;
     justify-content:center;
-    margin-top: 12rem;
+    margin-top: 8rem;
 }
 #noticeImg{
     background-image: url("/assets/image/noticeImg.svg");
@@ -155,7 +157,7 @@ li::before{
 }
 
 #noticeConataier{
-    margin-left: 5rem;
+    margin-left: 3rem;
     display: flex;
     flex-direction: column;
 
