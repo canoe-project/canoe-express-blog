@@ -62,18 +62,17 @@ a{
 
 /*list init*/
 ul{
-    display: inline-block; 
+    display: block; 
 
     height: 10rem;
 
-    white-space: nowrap; 
-    overflow-y: scroll;
-    overflow: hidden;
+    white-space: nowrap; /*리스트 아이템의 줄바꿈 방자*/
+    overflow-y: scroll;/*리스트 세로 스크롤 */
 }
 
 ul::-webkit-scrollbar {
 
-    display:none;
+    display:none;/*리스트 스크롤바 숨김*/
 } 
     
 li{
