@@ -1,3 +1,4 @@
+/* css init */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -45,21 +46,29 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+/*custom stylesheet*/
+
 h2{
-    color: #58859C;
     font-size: 40pt;
+    color: #58859C;
 }
+
+/*link init*/
 a{
     text-decoration: none;
     color: #494949;
 }
 
+/*list init*/
 ul{
-    height: 10rem;
     display: inline-block; 
+
+    height: 10rem;
+
     white-space: nowrap; 
-    overflow: hidden;
     overflow-y: scroll;
+    overflow: hidden;
 }
 
 ul::-webkit-scrollbar {
@@ -67,71 +76,102 @@ ul::-webkit-scrollbar {
     display:none;
 } 
     
-
 li{
-    background-color: #F7F7F7;
-    /* margin: 1rem 0; */
-    padding: 0.5rem;
     font-size: 18pt;
+
+    padding: 0.5rem;
+
+    background-color: #F7F7F7;
 }
 li>a::before{
     content: "";
+
     display: inline-block;
+
     width: 1.250rem;
     height: 1.250rem;
     margin-right:1rem;
+
     background-image: url("/assets/image/loudSpeaker.svg");
 }
+
+/*notice list first item effect */
 .firstItem{
     background-color: #58859C;
 }
 .firstItem >a::before{
     background-image: url("/assets/image/loudSpeakerWhite.svg");
 }
-
-#wrapper{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
 .frame{
    margin: 0 5rem;
 }
 
-#content{
-    margin: 2rem 2rem 0;
-    flex: auto;
-    background-color: #ffffff;
+/*wrapper*/
+#wrapper{
+    display: flex;
+
+    flex-direction: column;
     
+    height: 100%;
 }
 
+/*backgorund*/
 #wrapper > #bg {
     display: flex;
+
     flex-direction: column;
-    height: 100%;
     flex: auto;
+
+    height: 100%;
     margin: 0 8rem 0;
-    background-color: #c1a68b;
+
     border-top-right-radius: 3rem;
     border-top-left-radius: 3rem;   
 
+    background-color: #c1a68b;
+
 }
+
+/*main content*/
+#content{
+    flex: auto;
+
+    margin: 2rem 2rem 0;
+
+    background-color: #ffffff; 
+}
+
 #menuButton{
     position: relative;
-    top: 40px;
-    left: 40px;
-    background-image: url("/assets/image/menuButton.svg") ;
+
+    top: 2rem;
+    left: 2rem;
     width: 46px;
     height: 30px;
+
+    background-image: url("/assets/image/menuButton.svg") ;
     border: none;
     cursor: pointer;
 }
+
+/*intro*/
+#intro >h1{
+    font-size: 70pt;
+    text-align: center;
+
+    margin: 6.5rem auto;
+
+    color: #494949;
+}
+
+/*intro boundary*/
 #intro >h1::before, #intro >h1::after{
-    
     content: "";
+
     display: block;
-    margin: 0 auto;
     width: calc(100% - 15rem);
+
+    margin: 0 auto;
     border-top: solid 5px;
     border-top-color: #494949;
 }
@@ -142,57 +182,59 @@ li>a::before{
     margin-top: 3.125rem;
 }
 
-/*margin: 3.125rem auto;*/
-#intro >h1{
-    color: #494949;
-    text-align: center;
-    font-size: 70pt;
-    margin: 6.5rem auto;
-}
-
+/*main content*/
 #main{
     flex: auto;
-
 }
 #mainImg{
     flex: auto;
     float: right;
+
     width: 13.125rem;
     height: 18.750rem;
-    background-image: url("/assets/image/mainImg.svg");
     margin: 2rem;
+
+    background-image: url("/assets/image/mainImg.svg");
 }
 
+/*notice content area*/
 #notice{
     display: flex;
-    width: calc(100% - 15rem);
-    flex-direction:row;
-    justify-content:center;
-    margin: 8rem auto 0;
+
+    flex-direction: column;
+    flex: auto;
+
+    margin-left: 2rem;
 }
+
+/*notice image*/
 #noticeImg{
-    background-image: url("/assets/image/noticeImg.svg");
-    background-repeat: no-repeat;
+    flex: none;
+
     width: 4rem;
     height: 4rem;
     margin: auto 0;
-    flex: none;
+
+    background-image: url("/assets/image/noticeImg.svg");
+    background-repeat: no-repeat;
 }
+
 
 #noticeConataier{
     display: flex;
-    margin-left: 2rem;
-    flex-direction: column;
-    flex: auto;
+
+    flex-direction:row;
+    justify-content:center;
+
+    width: calc(100% - 15rem);
+    margin: 8rem auto 0;
 }
-#noticeConataier>h2{
+#notice>h2{
     flex: auto;
     margin-bottom: 1rem;
 }
 
-
 footer{
-    /* width: inherit; */
     height: 20rem;
     background-color: #003333;
     margin-top: 10rem;
