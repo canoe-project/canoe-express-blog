@@ -1,14 +1,22 @@
 (function($) {
     var $header = $('header');
     var $wrapper = $('#wrapper');
+    var $mnueButton = $('#menuButton');
+    var $intro = $('#intro');
 
-$.fn.add_mainPanel = function(){
-    $this = $(this);
+// $.fn.toggle = function(){
+    
+//     $(document).ready(function () {
+//         $('button#menuButton').click(function () {
+//             $('div#menu').toggle('slow');
+//         });
+//     });
+// }
+$(document).ready(function () {
+    $('button#menuButton').click(function () {
+        $('div#menu').toggle('slow');
+    });
+});
 
-    // $('<div class="bg"></div>').appendTo($this)
-    ($this).prepend('<div class="bg"></div>')
-}
-
-// $wrapper.add_mainPanel();
 
 })(jQuery);

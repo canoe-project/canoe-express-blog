@@ -28,9 +28,12 @@ html{
     font-size: 16pt;
 }
 body {
-    
 	line-height: 1;
 }
+
+
+
+html, body{}
 ol, ul {
 	list-style: none;
 }
@@ -68,7 +71,6 @@ ul{
 
     white-space: nowrap; 
     overflow-y: scroll;
-    overflow: hidden;
 }
 
 ul::-webkit-scrollbar {
@@ -112,7 +114,6 @@ li>a::before{
 
     flex-direction: column;
     
-    height: 100%;
 }
 
 /*backgorund*/
@@ -122,7 +123,6 @@ li>a::before{
     flex-direction: column;
     flex: auto;
 
-    height: 100%;
     margin: 0 8rem 0;
 
     border-top-right-radius: 3rem;
@@ -152,6 +152,14 @@ li>a::before{
     background-image: url("/assets/image/menuButton.svg") ;
     border: none;
     cursor: pointer;
+}
+
+#menu{
+    position: fixed;
+    width: 20rem;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 2;
 }
 
 /*intro*/
@@ -234,8 +242,12 @@ li>a::before{
     margin-bottom: 1rem;
 }
 
+
+
 footer{
     height: 20rem;
     background-color: #003333;
     margin-top: 10rem;
 }
+
+html { height: 100%; } body { height: 100%; }
