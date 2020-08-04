@@ -151,15 +151,15 @@ li>a::before{
 
     background-image: url("/assets/image/menuButton.svg") ;
     border: none;
-    cursor: pointer;
 }
 
-#menu{
+.menu{
     position: fixed;
+    display: block;
     width: 20rem;
     height: 100%;
     background-color: #ffffff;
-    z-index: 2;
+    box-shadow: 10px 2px 10px  #494949;;
 }
 
 /*intro*/
@@ -242,12 +242,8 @@ li>a::before{
     margin-bottom: 1rem;
 }
 
-
-
 footer{
     height: 20rem;
     background-color: #003333;
     margin-top: 10rem;
 }
-
-html { height: 100%; } body { height: 100%; }
