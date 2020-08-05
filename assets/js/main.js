@@ -1,15 +1,31 @@
 (function($) {
-    var $header = $('header');
-    var $wrapper = $('#wrapper');
+    var $menu = $('.menu'),
+        $menuButton = $('#menuButton'),
+        $menuContainer = $('.menuContainer'),
+        $body = $('body'),
+        $content = $('#content'),
+        $wrapper = $('#wrapper');
 
-// $.fn.add_mainPanel = function(){
-//     $this = $(this);
 
-//     //$('<div class="bg"></div>').appendTo($this)
-//     ($this).prepend('<div class="bg"></div>')
-// }
+/*클릭된 태그 확인용*/
+// $(document).on('click',function(e){
+//     console.log(e.target)
+// })
 
-// $wrapper.add_mainPanel();
+$(document).on('mouseup', (e)=>{
+    if( !$menu.is(e.target))
+    {
+            $menu.removeClass('is-active');
+    }
+})
+
+$.fn.menuToggleButton = function(){
+    $(this).on('click', () =>{
+        $menu.toggleClass('is-active');
+    })
+}
+
+$menuButton.menuToggleButton()
 
 
 

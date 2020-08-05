@@ -28,9 +28,9 @@ html{
     font-size: 16pt;
 }
 body {
-    
 	line-height: 1;
 }
+
 ol, ul {
 	list-style: none;
 }
@@ -68,6 +68,8 @@ ul{
 
     white-space: nowrap; /*리스트 아이템의 줄바꿈 방자*/
     overflow-y: scroll;/*리스트 세로 스크롤 */
+    white-space: nowrap; 
+    overflow-y: scroll;
 }
 
 ul::-webkit-scrollbar {
@@ -111,7 +113,6 @@ li>a::before{
 
     flex-direction: column;
     
-    height: 100%;
 }
 
 /*backgorund*/
@@ -121,7 +122,6 @@ li>a::before{
     flex-direction: column;
     flex: auto;
 
-    height: 100%;
     margin: 0 8rem 0;
 
     border-top-right-radius: 3rem;
@@ -150,8 +150,25 @@ li>a::before{
 
     background-image: url("/assets/image/menuButton.svg") ;
     border: none;
-    cursor: pointer;
 }
+
+
+.menu{
+    position: fixed;
+    display: none;
+    width: 20rem;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: 10px 2px 10px  #494949;;
+    z-index: 2;
+}
+.menu.is-active{
+    display: block;
+}
+/* .menuclose{
+    position: relative;
+    width: ;
+} */
 
 /*intro*/
 #intro >h1{
