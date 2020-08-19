@@ -1,12 +1,9 @@
-var express = require('express')
-var router = express.Router()
-var template = require('../lib/template.js')
+var express = require("express");
+var module = require("../module.js");
+var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
+router.get("/", (req, res) => {
+  res.send(module.fileLoad("Notice"));
+});
 
-  
-  response(html)
-})
-
-module.exports = router
+module.exports = router;
