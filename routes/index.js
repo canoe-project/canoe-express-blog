@@ -1,9 +1,10 @@
 var express = require("express");
-var module = require("../module.js");
 var router = express.Router();
+var userModule = require("../userModule.js");
 
-router.get("/", (req, res) => {
-  res.send(module.fileLoad("Notice"));
+router.get("/", async (req, res) => {
+  var i = await userModule.fileLoad("Notice");
+  res.send(i);
 });
 
 module.exports = router;

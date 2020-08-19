@@ -1,13 +1,9 @@
 var express = require("express");
 var app = express();
-var indexRouter = require("./routes/index");
-var module = require("./module.js");
-// app.use("/", indexRouter);
-app.get("/", async (req, res) => {
-  var i = await module.fileLoad("Notice");
-  console.log(i);
-  res.send(i);
-});
+var indexRouter = require("./routes/index.js");
+app.use(express.static("./assets/fileData/Notice"));
+
+app.use("/", indexRouter);
 
 app.use(function (req, res, next) {
   res.status(404).send("Sorry cant find that!");
