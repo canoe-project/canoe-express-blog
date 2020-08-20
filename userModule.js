@@ -23,19 +23,19 @@ const fileSearch = (target) => {
 const creatList = (target, file, fileList) => {
   return new Promise((resolve, reject) => {
     fs.stat(`assets/fileData/${target}/${file}`, async (err, stats) => {
-      await fileList.push(new fileData(file, Date.parse(stats.birthtime)));
+      await fileList.push(new fileData(file, stats.birthtime));
       return resolve(fileList);
     });
   });
 };
 
 /*파일 객체 정렬*/
-const fileSort = (files) => {
-  files.sort(function (a, b) {
-    if (a.stats > b.stats) {
+const fileSort = async (files) => {
+  return await files.sort(function (a, b) {
+    if (a.stats < b.stats) {
       return 1;
     }
-    if (a.stats < b.stats) {
+    if (a.stats > b.stats) {
       return -1;
     }
 
@@ -46,20 +46,28 @@ const fileSort = (files) => {
 const createLI = (file, list) => {
   return new Promise(async (resolve, reject) => {
     await list.push(
-      `<li><a href='${file.name}'>${file.name}-${file.stats}</a></li>`
+      `<li><a href='${file.name}'>${file.name}&emsp;&emsp;&emsp;&emsp;${
+        file.stats.getMonth() + 1
+      }월${file.stats.getDate()}일</a></li>`
     );
     return resolve(list);
   });
 };
 
-const createUL = async (fileList, list) => {
-  await fileList.reduce((previos, current) => {
-    return previos.then(() => {
-      return createLI(current, list);
-    });
-  }, Promise.resolve());
-  list.push("</ul>");
-  return list;
+const createUL = async (fileList) => {
+  return new Promise(async (resolve, reject) => {
+    let list = ["<ul>"];
+    await fileList
+      .reduce((previos, current) => {
+        return previos.then(() => {
+          return createLI(current, list);
+        });
+      }, Promise.resolve())
+      .then(() => {
+        list.push("</ul>");
+        return resolve(list);
+      });
+  });
 };
 
 /*순차적 promise 반환*/
@@ -71,20 +79,40 @@ const sequence = async (files, list) => {
   }, Promise.resolve());
 };
 
-const fileLoad = async (target) => {
+// const fileLoad = async (target) => {
+//   let fileList = [];
+//   let ulList = ["<ul>"];
+//   const files = await fileSearch(target);
+//   await Promise.all(
+//     files.map(async (file) => {
+//       await creatList(target, file, fileList);
+//     })
+//   );
+//   await fileSort(fileList);
+//   await createUL(fileList, ulList);
+//   return ulList.join("");
+// };
+
+const fileLoadNew = async (target) => {
   let fileList = [];
-  let ulList = ["<ul>"];
-  const files = await fileSearch(target);
-  await Promise.all(
-    files.map(async (file) => {
-      await creatList(target, file, fileList);
+
+  return await fileSearch(target)
+    .then(async (files) => {
+      await Promise.all(
+        files.map(async (file) => {
+          await creatList(target, file, fileList);
+        })
+      );
     })
-  );
-  await fileSort(fileList);
-  await createUL(fileList, ulList);
-  return ulList.join("");
+    .then(() => {
+      return fileSort(fileList);
+    })
+    .then((list) => {
+      return createUL(list);
+    })
+    .then((list) => {
+      return list.join("");
+    });
 };
 
-// fileLoad("Notice");
-
-module.exports = { fileLoad: fileLoad };
+module.exports = { fileLoad: fileLoadNew };
