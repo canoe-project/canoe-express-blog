@@ -46,9 +46,9 @@ const fileSort = async (files) => {
 const createLI = (file, list) => {
   return new Promise(async (resolve, reject) => {
     await list.push(
-      `<li><a href='${file.name}'>${file.name}&emsp;&emsp;&emsp;&emsp;${
+      `<li><a href='${file.name}'>${file.name}</a><span>${
         file.stats.getMonth() + 1
-      }월${file.stats.getDate()}일</a></li>`
+      }월${file.stats.getDate()}일</span></li>`
     );
     return resolve(list);
   });
@@ -56,7 +56,7 @@ const createLI = (file, list) => {
 
 const createUL = async (fileList) => {
   return new Promise(async (resolve, reject) => {
-    let list = ["<ul>"];
+    let list = [];
     await fileList
       .reduce((previos, current) => {
         return previos.then(() => {
@@ -64,7 +64,6 @@ const createUL = async (fileList) => {
         });
       }, Promise.resolve())
       .then(() => {
-        list.push("</ul>");
         return resolve(list);
       });
   });

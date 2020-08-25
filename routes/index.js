@@ -2,7 +2,11 @@ var express = require("express");
 var router = express.Router();
 var userModule = require("../userModule.js");
 
-router.get("/", async (req, res) => {
+router.get("/", (req, res) => {
+  res.send("hello world");
+});
+
+router.get("/data", async (req, res) => {
   res.send(await userModule.fileLoad("Notice"));
 });
 
