@@ -1,13 +1,16 @@
 var express = require("express");
 var router = express.Router();
 var userModule = require("../userModule.js");
-var path = require("path");
 
 router.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../", "/public/main.html"));
+  res.render("index");
 });
 router.get("/data", async (req, res) => {
   res.send(await userModule.fileLoad("Notice"));
 });
+
+router.get("/main", async (req, res) => {
+  res.send(await userModule.dataLoad("Lorem Ipsum"))
+})
 
 module.exports = router;

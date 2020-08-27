@@ -1,22 +1,32 @@
 (function ($) {
   var $menu = $(".menu"),
     $menuButton = $("#menuButton"),
-    $menuContainer = $(".menuContainer"),
+    $main = $("#main"),
     $body = $("body"),
     $content = $("#content"),
     $wrapper = $("#wrapper"),
-    $notice = $("#notice");
+    $notice = $("#notice"),
+    $document = $("document");
 
   /*클릭된 태그 확인용*/
   // $(document).on('click',function(e){
   //     console.log(e.target)
   // })
+  $document.ready(() => {
+    $.ajax({
+      url: "/data",
+      type: "get",
+    }).done((data) => {
+      $notice.children("ul").append(data);
+    });
 
-  $.ajax({
-    url: "/data",
-    type: "get",
-  }).done((data) => {
-    $notice.children("ul").append(data);
+    $.ajax({
+      url: "/main",
+      type: "get"
+    }).done((data) => {
+      console.log(data)
+      $main.append(data)
+    })
   });
 
   $(document).on("mouseup", (e) => {

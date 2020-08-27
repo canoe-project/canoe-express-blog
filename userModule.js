@@ -47,7 +47,7 @@ const createLI = (file, list) => {
   return new Promise(async (resolve, reject) => {
     await list.push(
       `<li><a href='${file.name}'>${file.name}</a><span>${
-        file.stats.getMonth() + 1
+      file.stats.getMonth() + 1
       }월${file.stats.getDate()}일</span></li>`
     );
     return resolve(list);
@@ -114,4 +114,18 @@ const fileLoadNew = async (target) => {
     });
 };
 
-module.exports = { fileLoad: fileLoadNew };
+const dataLoad = async (target) => {
+  return await fileSearch(target)
+    .then(files => {
+      return new Promise(async (resolve, reject) => {
+        fs.readFile(`./assets/fileData/Lorem Ipsum/` + files[Math.floor(Math.random() * files.length)], 'utf8', function (err, data) {
+          return resolve(data)
+        })
+      })
+    })
+}
+
+module.exports = {
+  fileLoad: fileLoadNew,
+  dataLoad: dataLoad
+};

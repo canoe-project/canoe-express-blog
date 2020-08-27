@@ -1,12 +1,13 @@
 var express = require("express");
 var app = express();
 var indexRouter = require("./routes/index.js");
+
 app.use(express.static("./assets/fileData/Notice"));
 app.use(express.static("public"));
+
+app.set("view engine", "pug");
+
 app.use("/", indexRouter);
-// app.get("/", (req, res) => {
-//   res.sendFile(__dirname + "/loadhtml.html");
-// });
 
 app.use(function (req, res, next) {
   res.status(404).send("Sorry cant find that!");

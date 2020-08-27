@@ -251,12 +251,7 @@ li > a::before {
 .menu.is-active {
   display: block;
 }
-/* .menuclose{
-    position: relative;
-    width: ;
-} */
 
-/*intro*/
 #intro > h1 {
   font-size: 70pt;
   text-align: center;
@@ -322,7 +317,7 @@ li > a::before {
   background-repeat: no-repeat;
 }
 
-#noticeConataier {
+#noticeContaier {
   display: flex;
   flex: auto;
   flex-direction: row;
