@@ -1,11 +1,9 @@
 (function ($) {
   var $menu = $(".menu"),
     $menuButton = $("#menuButton"),
-    $main = $("#main"),
-    $body = $("body"),
-    $content = $("#content"),
-    $wrapper = $("#wrapper"),
-    $notice = $("#notice"),
+    $intro = $("#intro"),
+    $writingList = $(".writingContainer > .contentBox"),
+    $noticeList = $(".noticeContainer > .contentBox"),
     $document = $("document");
 
   /*클릭된 태그 확인용*/
@@ -14,19 +12,25 @@
   // })
   $document.ready(() => {
     $.ajax({
-      url: "/data",
+      url: "/information/notice",
       type: "get",
     }).done((data) => {
-      $notice.children("ul").append(data);
+      $noticeList.children("ul").append(data);
     });
 
+    // $.ajax({
+    //   url: "/writing",
+    //   type: "get",
+    // }).done((data) => {
+    //   $writingList.children("ul").append(data);
+    // });
+
     $.ajax({
-      url: "/main",
-      type: "get"
+      url: "/information/introText",
+      type: "get",
     }).done((data) => {
-      console.log(data)
-      $main.append(data)
-    })
+      $intro.append(JSON.parse(data).content);
+    });
   });
 
   $(document).on("mouseup", (e) => {

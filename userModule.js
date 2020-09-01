@@ -1,4 +1,5 @@
 const fs = require("fs");
+const { resolve } = require("path");
 
 //파일의 정보를 저장하기 위한 클래스
 class fileData {
@@ -20,7 +21,7 @@ const fileSearch = (target) => {
 
 /*확인하고자 하는 파일의 경로와 이름 그리고 배열 변수를 주면 파일의 정보를 fileData의 객체를 생성하여 
 그 값을 resolve한다.*/
-const creatList = (target, file, fileList) => {
+const creatFileList = (target, file, fileList) => {
   return new Promise((resolve, reject) => {
     fs.stat(`assets/fileData/${target}/${file}`, async (err, stats) => {
       await fileList.push(new fileData(file, stats.birthtime));
@@ -43,29 +44,71 @@ const fileSort = async (files) => {
   });
 };
 
+const createUL = async (target, fileList) => {
+  return new Promise(async (resolve, reject) => {
+    let list = [];
+    await fileList
+      .reduce((previos, current) => {
+        return previos.then(() => {
+          switch (target) {
+            case "Notice":
+              return createLI(current, list);
+              break;
+            case "Writing":
+              return createCardLI(target, current, list);
+              break;
+            default:
+              break;
+          }
+        });
+      }, Promise.resolve())
+      .then(() => {
+        return resolve(list);
+      });
+  });
+};
+
 const createLI = (file, list) => {
   return new Promise(async (resolve, reject) => {
     await list.push(
       `<li><a href='${file.name}'>${file.name}</a><span>${
-      file.stats.getMonth() + 1
+        file.stats.getMonth() + 1
       }월${file.stats.getDate()}일</span></li>`
     );
     return resolve(list);
   });
 };
 
-const createUL = async (fileList) => {
+const createCardLI = (target, file, list) => {
   return new Promise(async (resolve, reject) => {
-    let list = [];
-    await fileList
-      .reduce((previos, current) => {
-        return previos.then(() => {
-          return createLI(current, list);
-        });
-      }, Promise.resolve())
-      .then(() => {
-        return resolve(list);
-      });
+    await readJson(target, file).then((jsonFile) => {
+      list.push(
+        `<li>
+          <div class="contentBlock">
+            <div class="headCopy">
+              <h3>${jsonFile.title}</h3>
+              <div class="star">${jsonFile.star}</div>
+              <div class="view">${jsonFile.view}</div>
+            </div>
+            <div>
+              <img class="blockContentImg" src="${jsonFile.image}">
+              <div class="blockContent">${jsonFile.content.substr(0, 50)}</div>
+              <div class="blocDate">${new Date(jsonFile.date)}</div>
+            </div>
+          </div>
+        <li>
+        `
+      );
+    });
+    return resolve(list);
+  });
+};
+
+const readJson = (target, file) => {
+  return new Promise((resolve, reject) => {
+    fs.readFile(`assets/fileData/${target}/${file}`, (err, data) => {
+      return resolve(JSON.parse(data));
+    });
   });
 };
 
@@ -78,28 +121,14 @@ const sequence = async (files, list) => {
   }, Promise.resolve());
 };
 
-// const fileLoad = async (target) => {
-//   let fileList = [];
-//   let ulList = ["<ul>"];
-//   const files = await fileSearch(target);
-//   await Promise.all(
-//     files.map(async (file) => {
-//       await creatList(target, file, fileList);
-//     })
-//   );
-//   await fileSort(fileList);
-//   await createUL(fileList, ulList);
-//   return ulList.join("");
-// };
-
-const fileLoadNew = async (target) => {
+const fileLoad = async (target) => {
   let fileList = [];
 
   return await fileSearch(target)
     .then(async (files) => {
       await Promise.all(
         files.map(async (file) => {
-          await creatList(target, file, fileList);
+          await creatFileList(target, file, fileList);
         })
       );
     })
@@ -107,25 +136,29 @@ const fileLoadNew = async (target) => {
       return fileSort(fileList);
     })
     .then((list) => {
-      return createUL(list);
+      return createUL(target, list);
     })
     .then((list) => {
       return list.join("");
     });
 };
 
-const dataLoad = async (target) => {
-  return await fileSearch(target)
-    .then(files => {
-      return new Promise(async (resolve, reject) => {
-        fs.readFile(`./assets/fileData/Lorem Ipsum/` + files[Math.floor(Math.random() * files.length)], 'utf8', function (err, data) {
-          return resolve(data)
-        })
-      })
-    })
-}
+const randomTextLoad = async (target) => {
+  return await fileSearch(target).then((files) => {
+    return new Promise(async (resolve, reject) => {
+      fs.readFile(
+        `./assets/fileData/${target}/` +
+          files[Math.floor(Math.random() * files.length)],
+        "utf8",
+        function (err, data) {
+          return resolve(data);
+        }
+      );
+    });
+  });
+};
 
 module.exports = {
-  fileLoad: fileLoadNew,
-  dataLoad: dataLoad
+  fileLoad: fileLoad,
+  randomTextLoad: randomTextLoad,
 };

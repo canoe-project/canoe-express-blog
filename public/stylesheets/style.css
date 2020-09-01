@@ -1,8 +1,158 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+html, body, div, span, applet, object,
+iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, a, abbr, acronym, address, big, cite,
+code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b,
+u, i, center, dl, dt, dd, ol, ul, li, fieldset,
+form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside,
+canvas, details, embed, figure, figcaption,
+footer, header, hgroup, menu, nav, output, ruby,
+section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
 
-a {
-  color: #00B7FF;
-}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+  blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body {
+  -webkit-text-size-adjust: none; }
+
+mark {
+  background-color: transparent;
+  color: inherit; }
+
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+input, select, textarea {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  appearance: none; }
+
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  border-color: #c1a68b;
+  border-top-right-radius: 3rem;
+  border-top-left-radius: 3rem;
+  border-top-width: 3rem;
+  border-right-width: 1.5rem;
+  border-left-width: 1.5rem;
+  border-style: solid;
+  background-color: #ffffff;
+  padding: 3rem 3rem 0;
+  margin: 0 8rem 0; }
+
+header h1 {
+  font-size: 4.375em;
+  text-align: center;
+  margin: 6.5rem auto; }
+  header h1::before, header h1::after {
+    content: "";
+    display: block;
+    width: calc(100% - 10rem);
+    margin: 0 auto;
+    border-top: double 5px;
+    border-top-color: #494949; }
+  header h1::before {
+    margin-bottom: 3.125rem; }
+  header h1::after {
+    margin-top: 3.125rem; }
+
+footer {
+  height: 15rem;
+  background-color: #003333;
+  margin: 5rem -3rem 0; }
+
+.noticeContainer {
+  display: flex;
+  flex: auto;
+  flex-direction: row;
+  justify-content: center;
+  width: calc(100% - 15rem);
+  margin: 8rem auto 0; }
+
+.contentBox {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  margin-left: 2rem; }
+  .contentBox h2 {
+    font-size: 40pt;
+    color: #58859c;
+    flex: auto;
+    margin-bottom: 1rem; }
+  .contentBox a {
+    text-decoration: none;
+    color: #494949; }
+  .contentBox ul {
+    display: block;
+    height: 10rem;
+    white-space: nowrap;
+    overflow-y: scroll;
+    white-space: nowrap;
+    overflow-y: scroll; }
+    .contentBox ul::-webkit-scrollbar {
+      display: none; }
+    .contentBox ul li {
+      font-size: 18pt;
+      padding: 0.5rem;
+      background-color: #f7f7f7;
+      display: flex;
+      flex-direction: row; }
+      .contentBox ul li:first-child {
+        background-color: #58859c; }
+      .contentBox ul li:first-child > a::before {
+        background-image: url("/images/loudSpeakerWhite.svg"); }
+      .contentBox ul li span {
+        margin-left: auto;
+        color: #494949; }
+      .contentBox ul li a::before {
+        content: "";
+        display: inline-block;
+        width: 1.25rem;
+        height: 1.25rem;
+        margin-right: 1rem;
+        background-image: url("/images/loudSpeaker.svg"); }
+
+.contentImg {
+  flex: none;
+  width: 4rem;
+  height: 4rem;
+  margin: auto 0;
+  background-repeat: no-repeat; }
+
+.intro {
+  flex: auto; }
+
+#introImg {
+  flex: auto;
+  float: right;
+  width: 13.125rem;
+  height: 18.75rem;
+  margin: 2rem;
+  background-image: url("/images/mainImg.svg"); }
