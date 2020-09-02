@@ -1,0 +1,28 @@
+.contentBox {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  margin-left: 2rem; }
+  .contentBox h2 {
+    font-size: 40pt;
+    color: #58859c;
+    flex: auto;
+    margin-bottom: 1rem; }
+  .contentBox ul {
+    display: block;
+    height: 10rem;
+    white-space: nowrap;
+    overflow-y: scroll; }
+    .contentBox ul::-webkit-scrollbar {
+      display: none; }
+    .contentBox ul li {
+      padding: 0.5rem;
+      display: flex;
+      flex-direction: row; }
+
+.contentImg {
+  flex: none;
+  width: 4rem;
+  height: 4rem;
+  margin: auto 0;
+  background-repeat: no-repeat; }

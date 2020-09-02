@@ -1,10 +1,11 @@
 (function ($) {
   var $menu = $(".menu"),
-    $menuButton = $("#menuButton"),
+    $menuButton = $(".menuButton"),
     $intro = $("#intro"),
-    $writingList = $(".writingContainer > .contentBox"),
     $noticeList = $(".noticeContainer > .contentBox"),
-    $document = $("document");
+    $writingList = $(".writingContainer > .contentBox"),
+    $document = $("document"),
+    $noticeImage = $(".noticeContainer >.contentImg");
 
   /*클릭된 태그 확인용*/
   // $(document).on('click',function(e){
@@ -13,25 +14,29 @@
   $document.ready(() => {
     $.ajax({
       url: "/information/notice",
-      type: "get",
+      type: "post",
+      acync: true,
     }).done((data) => {
       $noticeList.children("ul").append(data);
     });
 
-    // $.ajax({
-    //   url: "/writing",
-    //   type: "get",
-    // }).done((data) => {
-    //   $writingList.children("ul").append(data);
-    // });
+    $.ajax({
+      url: "/information/writing",
+      type: "post",
+      acync: true,
+    }).done((data) => {
+      $writingList.children("ul").append(data);
+    });
 
     $.ajax({
       url: "/information/introText",
-      type: "get",
+      type: "post",
+      acync: true,
     }).done((data) => {
       $intro.append(JSON.parse(data).content);
     });
   });
+  // $document.load();
 
   $(document).on("mouseup", (e) => {
     if (!$menu.is(e.target)) {

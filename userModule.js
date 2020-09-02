@@ -84,19 +84,21 @@ const createCardLI = (target, file, list) => {
     await readJson(target, file).then((jsonFile) => {
       list.push(
         `<li>
-          <div class="contentBlock">
-            <div class="headCopy">
-              <h3>${jsonFile.title}</h3>
-              <div class="star">${jsonFile.star}</div>
-              <div class="view">${jsonFile.view}</div>
-            </div>
-            <div>
-              <img class="blockContentImg" src="${jsonFile.image}">
-              <div class="blockContent">${jsonFile.content.substr(0, 50)}</div>
-              <div class="blocDate">${new Date(jsonFile.date)}</div>
-            </div>
+          <div class="headCopy">
+            <h3>${jsonFile.title}</h3>
+            <div class="imfomation">
+              <span class="star">${jsonFile.star}</span>
+              <span class="view">${jsonFile.view}</span>
+            </div> 
           </div>
-        <li>
+          <div class="contentBody">
+            <img class="blockContentImg" src="${jsonFile.image}">
+            <div class="blockContent">${jsonFile.content.substr(0, 50)}</div>
+          </div>
+          <div class="blocDate">${new Date(jsonFile.date)
+            .toISOString()
+            .substring(0, 10)}</div>
+        </li>
         `
       );
     });
@@ -106,7 +108,7 @@ const createCardLI = (target, file, list) => {
 
 const readJson = (target, file) => {
   return new Promise((resolve, reject) => {
-    fs.readFile(`assets/fileData/${target}/${file}`, (err, data) => {
+    fs.readFile(`assets/fileData/${target}/${file.name}`, (err, data) => {
       return resolve(JSON.parse(data));
     });
   });
