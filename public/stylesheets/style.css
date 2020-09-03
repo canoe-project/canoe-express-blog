@@ -74,7 +74,7 @@ header h1 {
   header h1::before, header h1::after {
     content: "";
     display: block;
-    width: calc(100% - 10rem);
+    width: calc(100% - 21rem);
     margin: 0 auto;
     border-top: double 5px;
     border-top-color: #494949; }
@@ -141,7 +141,7 @@ footer {
   flex: auto;
   float: left;
   width: 10rem;
-  height: 10rem;
+  height: 8rem;
   margin: 0 2rem; }
 
 .writingContainer > .contentBox > ul > li {
@@ -150,9 +150,9 @@ footer {
   flex-direction: column;
   border: 2px solid #999999;
   border-radius: 10px;
-  margin: 2rem 0; }
+  margin-bottom: 1rem; }
   .writingContainer > .contentBox > ul > li h3 {
-    margin: 1rem 2rem 0.3rem;
+    margin-bottom: 1rem;
     font-size: 18pt; }
 
 .writingContainer > .contentBox ul {
@@ -251,3 +251,59 @@ footer {
 
 .menu.is-active {
   display: block; }
+
+.snsToggle {
+  background-image: url("/images/snsToggle.svg");
+  background-repeat: no-repeat;
+  width: 2rem;
+  height: 2rem;
+  position: relative;
+  margin-left: auto;
+  top: -9.375rem;
+  left: -10.625rem; }
+
+.itemList {
+  background-image: url("/images/speechBubble.svg");
+  position: relative;
+  display: none;
+  width: 20.531rem;
+  height: 4.125rem;
+  z-index: 1;
+  left: 2rem;
+  top: -1rem;
+  flex-direction: row;
+  align-items: center; }
+
+.itemList.is-active {
+  display: flex; }
+
+.instagram {
+  height: 2.565rem;
+  background-image: url("/images/instagramIcon.svg"); }
+
+.youtube {
+  height: 1.764rem;
+  background-image: url("/images/youtubeIcon.svg"); }
+
+.twitter {
+  height: 2.084rem;
+  background-image: url("/images/twitterIcon.svg"); }
+
+.facebook {
+  height: 2.084rem;
+  width: 1.456rem;
+  background-image: url("/images/facebookIcon.svg"); }
+
+.snsButton {
+  margin-left: auto;
+  width: 2.565rem;
+  display: inline-block;
+  background-repeat: no-repeat; }
+
+.pictureContainer {
+  display: flex;
+  flex: auto;
+  flex-direction: row;
+  justify-content: center;
+  width: calc(100% - 15rem);
+  margin: 8rem auto 0; }

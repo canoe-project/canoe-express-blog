@@ -57,6 +57,9 @@ const createUL = async (target, fileList) => {
             case "Writing":
               return createCardLI(target, current, list);
               break;
+            case "Picture":
+              return createPictureLI(current, list);
+              break;
             default:
               break;
           }
@@ -111,6 +114,15 @@ const readJson = (target, file) => {
     fs.readFile(`assets/fileData/${target}/${file.name}`, (err, data) => {
       return resolve(JSON.parse(data));
     });
+  });
+};
+
+const createPictureLI = (file, list) => {
+  return new Promise(async (resolve, reject) => {
+    await list.push(
+      `<li><img class="picture" src="./assets/fileData/Picture/${file.name}"></li>`
+    );
+    return resolve(list);
   });
 };
 

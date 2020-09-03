@@ -5,7 +5,9 @@
     $noticeList = $(".noticeContainer > .contentBox"),
     $writingList = $(".writingContainer > .contentBox"),
     $document = $("document"),
-    $noticeImage = $(".noticeContainer >.contentImg");
+    $noticeImage = $(".noticeContainer >.contentImg"),
+    $snsToggle = $(".snsToggle"),
+    $itemList = $(".itemList");
 
   /*클릭된 태그 확인용*/
   // $(document).on('click',function(e){
@@ -42,6 +44,9 @@
     if (!$menu.is(e.target)) {
       $menu.removeClass("is-active");
     }
+  });
+  $snsToggle.hover(() => {
+    $itemList.toggleClass("is-active");
   });
 
   $.fn.menuToggleButton = function () {

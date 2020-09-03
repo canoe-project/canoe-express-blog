@@ -14,4 +14,9 @@ router.post("/notice", async (req, res) => {
 router.post("/writing", async (req, res) => {
   res.send(await userModule.fileLoad("Writing"));
 });
+
+router.post("/picture", async (req, res) => {
+  res.send(await userModule.fileLoad("Picture"));
+});
+
 module.exports = router;

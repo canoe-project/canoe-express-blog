@@ -10,7 +10,7 @@
   flex: auto;
   float: left;
   width: 10rem;
-  height: 10rem;
+  height: 8rem;
   margin: 0 2rem; }
 
 .writingContainer > .contentBox > ul > li {
@@ -19,9 +19,9 @@
   flex-direction: column;
   border: 2px solid #999999;
   border-radius: 10px;
-  margin: 2rem 0; }
+  margin-bottom: 1rem; }
   .writingContainer > .contentBox > ul > li h3 {
-    margin: 1rem 2rem 0.3rem;
+    margin-bottom: 1rem;
     font-size: 18pt; }
 
 .writingContainer > .contentBox ul {

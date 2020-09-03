@@ -5,7 +5,7 @@ header h1 {
   header h1::before, header h1::after {
     content: "";
     display: block;
-    width: calc(100% - 10rem);
+    width: calc(100% - 21rem);
     margin: 0 auto;
     border-top: double 5px;
     border-top-color: #494949; }
