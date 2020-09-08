@@ -1,18 +1,10 @@
-.pictureContainer {
-  display: flex;
-  flex: auto;
-  flex-direction: row;
-  justify-content: center;
-  width: calc(100% - 60rem);
-  margin: 8rem auto 0; }
-
-.pictureContainer > .contentBox ul {
-  max-width: 35.6rem;
+#picture > .contentBox ul {
+  width: 49.6rem;
   flex-direction: row;
   overflow-y: hidden;
   overflow-x: scroll; }
-  .pictureContainer > .contentBox ul li {
-    display: inline-flex;
+  #picture > .contentBox ul li {
+    display: flex;
     padding: 0rem 0.5rem; }
 
 .picture {

@@ -1,14 +1,4 @@
-.noticeContainer {
-  display: flex;
-  flex: auto;
-  flex-direction: row;
-  justify-content: center;
-
-  width: calc(100% - 60rem);
-  margin: 8rem auto 0;
-}
-
-.noticeContainer > .contentBox {
+#notice > .contentBox {
   a {
     text-decoration: none;
     color: #494949;

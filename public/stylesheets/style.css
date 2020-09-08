@@ -65,7 +65,14 @@ input, select, textarea {
   border-style: solid;
   background-color: #ffffff;
   padding: 5rem 3rem 0;
-  margin: 0 8rem 0; }
+  margin: 25rem 8rem 0; }
+
+.container {
+  display: flex;
+  flex: auto;
+  flex-direction: row;
+  justify-content: center;
+  margin: 15rem 20rem; }
 
 .contentBox {
   display: flex;
@@ -76,7 +83,7 @@ input, select, textarea {
     font-size: 40pt;
     color: #58859c;
     flex: auto;
-    margin-bottom: 1rem; }
+    margin-bottom: 3rem; }
   .contentBox ul {
     display: flex;
     flex-direction: column;
@@ -93,9 +100,10 @@ input, select, textarea {
 
 .contentImg {
   flex: none;
-  width: 4rem;
-  height: 4rem;
+  width: 7rem;
+  height: 7rem;
   margin: auto 0;
+  margin-right: 3rem;
   background-repeat: no-repeat; }
 
 header h1 {
@@ -115,33 +123,53 @@ header h1 {
     margin-top: 3.125rem; }
 
 footer {
-  height: 15rem;
+  color: white;
+  height: 30rem;
   background-color: #003333;
-  margin: 5rem -3rem 0; }
-
-.noticeContainer {
   display: flex;
-  flex: auto;
-  flex-direction: row;
   justify-content: center;
-  width: calc(100% - 60rem);
-  margin: 8rem auto 0; }
+  margin: 5rem -3rem 0; }
+  footer h2 {
+    font-size: 30pt; }
+  footer .footBox {
+    font-size: 12pt;
+    flex-basis: 50%;
+    margin: 2rem;
+    padding: 4rem;
+    line-height: 150%; }
+    footer .footBox:first-child {
+      border-right: solid 5px;
+      border-right-color: white; }
+    footer .footBox img {
+      display: inline-block;
+      width: 3.125rem;
+      height: auto;
+      margin-right: 2rem;
+      vertical-align: middle; }
 
-.noticeContainer > .contentBox a {
+.footContent {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0; }
+
+.contact {
+  margin: 2rem; }
+
+#notice > .contentBox a {
   text-decoration: none;
   color: #494949; }
 
-.noticeContainer > .contentBox ul li {
+#notice > .contentBox ul li {
   font-size: 18pt;
   background-color: #f7f7f7; }
-  .noticeContainer > .contentBox ul li:first-child {
+  #notice > .contentBox ul li:first-child {
     background-color: #58859c; }
-  .noticeContainer > .contentBox ul li:first-child > a::before {
+  #notice > .contentBox ul li:first-child > a::before {
     background-image: url("/images/loudSpeakerWhite.svg"); }
-  .noticeContainer > .contentBox ul li span {
+  #notice > .contentBox ul li span {
     margin-left: auto;
     color: #494949; }
-  .noticeContainer > .contentBox ul li a::before {
+  #notice > .contentBox ul li a::before {
     content: "";
     display: inline-block;
     width: 1.25rem;
@@ -161,14 +189,6 @@ footer {
   margin: 2rem;
   background-image: url("/images/mainImg.svg"); }
 
-.writingContainer {
-  display: flex;
-  flex: auto;
-  flex-direction: row;
-  justify-content: center;
-  width: calc(100% - 60rem);
-  margin: 8rem auto 0; }
-
 .blockContentImg {
   float: left;
   width: 8rem;
@@ -178,18 +198,18 @@ footer {
 .blockContent {
   flex: auto; }
 
-.writingContainer > .contentBox > ul > li {
+#writing > .contentBox > ul > li {
   display: flex;
   flex: auto;
   flex-direction: column;
   border: 2px solid #999999;
   border-radius: 10px;
   margin-bottom: 1rem; }
-  .writingContainer > .contentBox > ul > li h3 {
+  #writing > .contentBox > ul > li h3 {
     margin-bottom: 1rem;
     font-size: 18pt; }
 
-.writingContainer > .contentBox ul {
+#writing > .contentBox ul {
   height: 30rem; }
 
 .headCopy {
@@ -268,7 +288,7 @@ footer {
   top: -9.375rem;
   left: -10.625rem; }
 
-.itemList {
+.snsitemList {
   background-image: url("/images/speechBubble.svg");
   position: relative;
   display: none;
@@ -306,21 +326,13 @@ footer {
   display: inline-block;
   background-repeat: no-repeat; }
 
-.pictureContainer {
-  display: flex;
-  flex: auto;
-  flex-direction: row;
-  justify-content: center;
-  width: calc(100% - 60rem);
-  margin: 8rem auto 0; }
-
-.pictureContainer > .contentBox ul {
-  max-width: 35.6rem;
+#picture > .contentBox ul {
+  width: 49.6rem;
   flex-direction: row;
   overflow-y: hidden;
   overflow-x: scroll; }
-  .pictureContainer > .contentBox ul li {
-    display: inline-flex;
+  #picture > .contentBox ul li {
+    display: flex;
     padding: 0rem 0.5rem; }
 
 .picture {

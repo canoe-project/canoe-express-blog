@@ -1,3 +1,10 @@
+.container {
+  display: flex;
+  flex: auto;
+  flex-direction: row;
+  justify-content: center;
+  margin: 15rem 20rem; }
+
 .contentBox {
   display: flex;
   flex-direction: column;
@@ -7,7 +14,7 @@
     font-size: 40pt;
     color: #58859c;
     flex: auto;
-    margin-bottom: 1rem; }
+    margin-bottom: 3rem; }
   .contentBox ul {
     display: flex;
     flex-direction: column;
@@ -24,7 +31,8 @@
 
 .contentImg {
   flex: none;
-  width: 4rem;
-  height: 4rem;
+  width: 7rem;
+  height: 7rem;
   margin: auto 0;
+  margin-right: 3rem;
   background-repeat: no-repeat; }

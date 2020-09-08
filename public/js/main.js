@@ -1,14 +1,14 @@
 (function ($) {
-  var $menu = $(".menu"),
+  var $notice = $("#notice "),
+    $writing = $("#writing"),
+    $picture = $("#picture"),
     $menuButton = $(".menuButton"),
-    $intro = $("#intro"),
-    $noticeList = $(".noticeContainer > .contentBox"),
-    $writingList = $(".writingContainer > .contentBox"),
-    $pictureList = $(".pictureContainer > .contentBox"),
+    $menu = $(".menu"),
     $document = $("document"),
-    $noticeImage = $(".noticeContainer >.contentImg"),
+    $intro = $("#intro"),
     $snsToggle = $(".snsToggle"),
-    $itemList = $(".itemList");
+    $itemList = $(".itemList"),
+    $snsButton = $(".snsButton");
 
   var noticePost = $.post("/information/notice"),
     writingPost = $.post("/information/writing"),
@@ -19,14 +19,24 @@
   $document.ready(() => {
     $.when(noticePost, writingPost, picturePost, introPost).done(
       (notice, writing, picture, intro) => {
-        $noticeList.children("ul").append(notice[0]);
-        $writingList.children("ul").append(writing[0]);
-        $pictureList.children("ul").append(picture[0]);
+        $notice.children(".contentBox").children("ul").append(notice[0]);
+        $writing.children(".contentBox").children("ul").append(writing[0]);
+        $picture.children(".contentBox").children("ul").append(picture[0]);
         $intro.append(JSON.parse(intro[0]).content);
       }
     );
   });
-  // $document.load();
+  $(window).on("load", () => {
+    $notice
+      .children(".contentImg")
+      .css({ "background-image": `url(/images/noticeImg.svg)` });
+    $writing
+      .children(".contentImg")
+      .css({ "background-image": `url(/images/writingImg.svg)` });
+    $picture
+      .children(".contentImg")
+      .css({ "background-image": `url(/images/pictureImg.svg)` });
+  });
 
   $(document).on("mouseup", (e) => {
     if (!$menu.is(e.target)) {
@@ -66,6 +76,13 @@
     });
   };
 
-  $pictureList.children("ul").horizontalScroll();
+  $.fn.activeSign = function(){
+    $(this).on("mouseover",()=>{
+      
+    })
+  }
+
+
+  $picture.children(".contentBox").children("ul").horizontalScroll();
   $menuButton.menuToggleButton();
 })(jQuery);

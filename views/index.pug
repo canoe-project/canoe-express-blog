@@ -1,27 +1,55 @@
-doctype html
-html
-  head
-    meta(charset='utf-8')
-    title canoe Blog
-    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
-    link(rel="stylesheet", href="./stylesheets/main.css")
-  body
-    #wrapper
-      .menu
-        .menuclose
-      #bg
-        #content
-          #intro
-            #menuButton
-            h1 BLOG
-          #main.frame
-            #mainImg
-          #noticeContaier
-            #noticeImg
-            #notice
-              h2 notice
-              ul
-            #development
-            #picture
-          footer    
-    script(src='../js/main.js')        
+extends layout.pug
+
+block button 
+    .menuButton
+    .menu
+block snsToggle
+    .snsToggle
+        .snsitemList
+            a(class='instagram snsButton' href='https://www.instagram.com')
+            a(class='youtube snsButton' href='https://www.youtube.com')
+            a(class='twitter snsButton' href='https://www.twitter.com')
+            a(class='facebook snsButton' href='https://www.facebook.com')
+block intro
+    .intro
+        #introImg
+block notice
+    .container#notice
+        .contentImg
+        .contentBox
+            h2 Notice
+            ul
+block writing
+    .container#writing
+        .contentImg
+        .contentBox
+            h2 Writing
+            ul
+block picture
+    .container#picture
+        .contentImg
+        .contentBox
+            h2 Piture
+            ul
+block footerContent
+    .footBox
+        h2 The standard Lorem Ipsum passage
+        .footContent 
+            |Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            | Proin placerat tempor velit, sit amet pretium massa.
+            | Fusce ultricies ante non felis mollis, id auctor arcu dapibus. 
+            |Ut tristique, turpis condimentum aliquam rhoncus, arcu lorem venenatis ante, sed posuere sapien lorem ut diam. 
+        .contact
+            img(src="/images/phoneIcon.svg") 
+            |010-0000-0000
+        .contact
+            img(src="/images/messageIcon.svg") 
+            |example@gmail.com
+    .footBox
+        h2 The standard Lorem Ipsum
+        .footContent 
+            p ● Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            p ● Ut semper est sit amet enim interdum dignissim.
+            p ● Nunc ullamcorper nibh ac ex faucibus,
+            p ● Fusce sed justo sed sem imperdiet rutrum vel non magna.
+            p ● Curabitur sagittis lectus ac erat eleifend, 
