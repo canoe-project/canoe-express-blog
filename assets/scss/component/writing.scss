@@ -4,16 +4,20 @@
   flex-direction: row;
   justify-content: center;
 
-  width: calc(100% - 15rem);
+  width: calc(100% - 60rem);
   margin: 8rem auto 0;
 }
 
 .blockContentImg {
-  flex: auto;
+  // flex: auto;
   float: left;
-  width: 10rem;
-  height: 8rem;
+  width: 8rem;
+  height: auto;
   margin: 0 2rem;
+}
+
+.blockContent {
+  flex: auto;
 }
 
 .writingContainer > .contentBox > ul > li {
@@ -50,6 +54,7 @@
 }
 
 .contentBody {
+  display: flex;
   margin: 1rem 0;
 }
 .imfomation {

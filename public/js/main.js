@@ -4,39 +4,27 @@
     $intro = $("#intro"),
     $noticeList = $(".noticeContainer > .contentBox"),
     $writingList = $(".writingContainer > .contentBox"),
+    $pictureList = $(".pictureContainer > .contentBox"),
     $document = $("document"),
     $noticeImage = $(".noticeContainer >.contentImg"),
     $snsToggle = $(".snsToggle"),
     $itemList = $(".itemList");
 
-  /*클릭된 태그 확인용*/
-  // $(document).on('click',function(e){
-  //     console.log(e.target)
-  // })
+  var noticePost = $.post("/information/notice"),
+    writingPost = $.post("/information/writing"),
+    introPost = $.post("/information/introText"),
+    picturePost = $.post("/information/picture");
+
+  var scrollAmount = 20;
   $document.ready(() => {
-    $.ajax({
-      url: "/information/notice",
-      type: "post",
-      acync: true,
-    }).done((data) => {
-      $noticeList.children("ul").append(data);
-    });
-
-    $.ajax({
-      url: "/information/writing",
-      type: "post",
-      acync: true,
-    }).done((data) => {
-      $writingList.children("ul").append(data);
-    });
-
-    $.ajax({
-      url: "/information/introText",
-      type: "post",
-      acync: true,
-    }).done((data) => {
-      $intro.append(JSON.parse(data).content);
-    });
+    $.when(noticePost, writingPost, picturePost, introPost).done(
+      (notice, writing, picture, intro) => {
+        $noticeList.children("ul").append(notice[0]);
+        $writingList.children("ul").append(writing[0]);
+        $pictureList.children("ul").append(picture[0]);
+        $intro.append(JSON.parse(intro[0]).content);
+      }
+    );
   });
   // $document.load();
 
@@ -45,6 +33,7 @@
       $menu.removeClass("is-active");
     }
   });
+
   $snsToggle.hover(() => {
     $itemList.toggleClass("is-active");
   });
@@ -55,5 +44,28 @@
     });
   };
 
+  $.fn.moveRight = function () {
+    if ($(this)[0].scrollWidth - $(this).scrollLeft() > $(this).outerWidth()) {
+      $(this).scrollLeft($(this).scrollLeft() + scrollAmount);
+    }
+  };
+
+  $.fn.moveLeft = function () {
+    if ($(this).scrollLeft() > 0) {
+      $(this).scrollLeft($(this).scrollLeft() - scrollAmount);
+    }
+  };
+
+  $.fn.horizontalScroll = function () {
+    $(this).on("mousewheel DOMMouseScroll", (e) => {
+      if (e.originalEvent.wheelDelta / 120 > 0) {
+        $(this).moveLeft();
+      } else {
+        $(this).moveRight();
+      }
+    });
+  };
+
+  $pictureList.children("ul").horizontalScroll();
   $menuButton.menuToggleButton();
 })(jQuery);

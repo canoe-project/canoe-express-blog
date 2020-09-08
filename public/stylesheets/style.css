@@ -64,8 +64,39 @@ input, select, textarea {
   border-left-width: 1.5rem;
   border-style: solid;
   background-color: #ffffff;
-  padding: 3rem 3rem 0;
+  padding: 5rem 3rem 0;
   margin: 0 8rem 0; }
+
+.contentBox {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  margin-left: 2rem; }
+  .contentBox h2 {
+    font-size: 40pt;
+    color: #58859c;
+    flex: auto;
+    margin-bottom: 1rem; }
+  .contentBox ul {
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    height: 10rem;
+    white-space: nowrap;
+    overflow-y: scroll; }
+    .contentBox ul::-webkit-scrollbar {
+      display: none; }
+    .contentBox ul li {
+      padding: 0.5rem;
+      display: flex;
+      flex: auto; }
+
+.contentImg {
+  flex: none;
+  width: 4rem;
+  height: 4rem;
+  margin: auto 0;
+  background-repeat: no-repeat; }
 
 header h1 {
   font-size: 4.375em;
@@ -93,7 +124,7 @@ footer {
   flex: auto;
   flex-direction: row;
   justify-content: center;
-  width: calc(100% - 15rem);
+  width: calc(100% - 60rem);
   margin: 8rem auto 0; }
 
 .noticeContainer > .contentBox a {
@@ -118,8 +149,9 @@ footer {
     margin-right: 1rem;
     background-image: url("/images/loudSpeaker.svg"); }
 
-.intro {
-  flex: auto; }
+#intro {
+  flex: auto;
+  padding: 0 8rem; }
 
 #introImg {
   flex: auto;
@@ -134,15 +166,17 @@ footer {
   flex: auto;
   flex-direction: row;
   justify-content: center;
-  width: calc(100% - 15rem);
+  width: calc(100% - 60rem);
   margin: 8rem auto 0; }
 
 .blockContentImg {
-  flex: auto;
   float: left;
-  width: 10rem;
-  height: 8rem;
+  width: 8rem;
+  height: auto;
   margin: 0 2rem; }
+
+.blockContent {
+  flex: auto; }
 
 .writingContainer > .contentBox > ul > li {
   display: flex;
@@ -170,6 +204,7 @@ footer {
     border-top-color: #999999; }
 
 .contentBody {
+  display: flex;
   margin: 1rem 0; }
 
 .imfomation {
@@ -199,35 +234,6 @@ footer {
   margin-left: auto;
   margin-right: 1rem;
   margin-bottom: 1.5rem; }
-
-.contentBox {
-  display: flex;
-  flex-direction: column;
-  flex: auto;
-  margin-left: 2rem; }
-  .contentBox h2 {
-    font-size: 40pt;
-    color: #58859c;
-    flex: auto;
-    margin-bottom: 1rem; }
-  .contentBox ul {
-    display: block;
-    height: 10rem;
-    white-space: nowrap;
-    overflow-y: scroll; }
-    .contentBox ul::-webkit-scrollbar {
-      display: none; }
-    .contentBox ul li {
-      padding: 0.5rem;
-      display: flex;
-      flex-direction: row; }
-
-.contentImg {
-  flex: none;
-  width: 4rem;
-  height: 4rem;
-  margin: auto 0;
-  background-repeat: no-repeat; }
 
 .menuButton {
   position: relative;
@@ -305,5 +311,19 @@ footer {
   flex: auto;
   flex-direction: row;
   justify-content: center;
-  width: calc(100% - 15rem);
+  width: calc(100% - 60rem);
   margin: 8rem auto 0; }
+
+.pictureContainer > .contentBox ul {
+  max-width: 35.6rem;
+  flex-direction: row;
+  overflow-y: hidden;
+  overflow-x: scroll; }
+  .pictureContainer > .contentBox ul li {
+    display: inline-flex;
+    padding: 0rem 0.5rem; }
+
+.picture {
+  flex: auto;
+  height: 8.5rem;
+  width: auto; }

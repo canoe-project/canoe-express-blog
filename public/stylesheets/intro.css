@@ -1,5 +1,6 @@
-.intro {
-  flex: auto; }
+#intro {
+  flex: auto;
+  padding: 0 8rem; }
 
 #introImg {
   flex: auto;

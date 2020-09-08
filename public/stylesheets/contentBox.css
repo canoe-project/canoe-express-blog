@@ -9,7 +9,9 @@
     flex: auto;
     margin-bottom: 1rem; }
   .contentBox ul {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    flex: auto;
     height: 10rem;
     white-space: nowrap;
     overflow-y: scroll; }
@@ -18,7 +20,7 @@
     .contentBox ul li {
       padding: 0.5rem;
       display: flex;
-      flex-direction: row; }
+      flex: auto; }
 
 .contentImg {
   flex: none;
