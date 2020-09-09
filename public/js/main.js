@@ -7,7 +7,7 @@
     $document = $("document"),
     $intro = $("#intro"),
     $snsToggle = $(".snsToggle"),
-    $itemList = $(".itemList"),
+    $itemList = $(".snsitemList"),
     $snsButton = $(".snsButton");
 
   var noticePost = $.post("/information/notice"),
@@ -76,12 +76,9 @@
     });
   };
 
-  $.fn.activeSign = function(){
-    $(this).on("mouseover",()=>{
-      
-    })
-  }
-
+  $.fn.activeSign = function () {
+    $(this).on("mouseover", () => {});
+  };
 
   $picture.children(".contentBox").children("ul").horizontalScroll();
   $menuButton.menuToggleButton();
