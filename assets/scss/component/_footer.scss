@@ -1,0 +1,38 @@
+footer {
+  color: white;
+  height: 30rem;
+  background-color: #a7a4a5 ;
+  display: flex;
+  justify-content: center;
+  margin: 5rem -3rem 0;
+
+  h2 {
+    font-size: 30pt;
+  }
+  .footBox {
+    font-size: 12pt;
+    flex-basis: 50%;
+    margin: 2rem;
+    padding: 4rem;
+    line-height: 150%;
+    &:first-child {
+      border-right: solid 5px;
+      border-right-color: white;
+    }
+    img {
+      display: inline-block;
+      width: 3.125rem;
+      height: auto;
+      margin-right: 2rem;
+      vertical-align: middle;
+    }
+  }
+}
+.footContent {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
+}
+.contact {
+  margin: 2rem;
+}

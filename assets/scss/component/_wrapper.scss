@@ -1,0 +1,30 @@
+#wrapper {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  position: relative;
+  background-color: #ffffff;
+  top: 69.5px;
+  padding: 5rem 3rem 0;
+  margin: 0px 8rem 0;
+}
+#accessory {
+  width: 648px;
+  height: 187px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-repeat: no-repeat;
+  background-image: url("/images/clip.svg");
+  position: absolute;
+  z-index: 1;
+}
+article {
+  display: flex;
+  padding: 0 8rem;
+}
+body {
+  background-color: #28313f;
+}
+html {
+  height: 100%;
+}

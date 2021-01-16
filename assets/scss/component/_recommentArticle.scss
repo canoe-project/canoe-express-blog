@@ -1,0 +1,27 @@
+footer {
+  margin: 5rem -3rem 0;
+  ul {
+    display: flex;
+    flex-direction: row;
+    li {
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: row;
+      flex: 1 0 0;
+      height: 14rem;
+      &:nth-child(1) {
+        background-color: #5f5c5d;
+      }
+      &:nth-child(2) {
+        background-color: #a7a4a5;
+      }
+      &:nth-child(3) {
+        background-color: #eae6e2;
+      }
+      img {
+        height: 8rem;
+      }
+    }
+  }
+}

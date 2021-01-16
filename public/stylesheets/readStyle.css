@@ -1,0 +1,188 @@
+html, body, div, span, applet, object,
+iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, a, abbr, acronym, address, big, cite,
+code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b,
+u, i, center, dl, dt, dd, ol, ul, li, fieldset,
+form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside,
+canvas, details, embed, figure, figcaption,
+footer, header, hgroup, menu, nav, output, ruby,
+section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+  blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body {
+  -webkit-text-size-adjust: none; }
+
+mark {
+  background-color: transparent;
+  color: inherit; }
+
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+input, select, textarea {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  appearance: none; }
+
+.menuButton {
+  position: relative;
+  top: -0.5rem;
+  left: 0.5rem;
+  width: 2.8rem;
+  height: 1.8rem;
+  background-image: url("/images/menuButton.svg");
+  border: none; }
+
+.menu {
+  position: fixed;
+  display: none;
+  width: 20rem;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  box-shadow: 10px 2px 10px #494949;
+  z-index: 2; }
+
+.menu.is-active {
+  display: block; }
+
+#wrapper {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  position: relative;
+  background-color: #ffffff;
+  top: 69.5px;
+  padding: 5rem 3rem 0;
+  margin: 0px 8rem 0; }
+
+#accessory {
+  width: 648px;
+  height: 187px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-repeat: no-repeat;
+  background-image: url("/images/clip.svg");
+  position: absolute;
+  z-index: 1; }
+
+article {
+  display: flex;
+  padding: 0 8rem; }
+
+body {
+  background-color: #28313f; }
+
+html {
+  height: 100%; }
+
+header {
+  padding: 0 8rem; }
+  header h1 {
+    font-size: 4.375em;
+    text-align: center;
+    margin: 5.5rem auto; }
+    header h1.homeHeader::before, header h1.homeHeader::after {
+      content: "";
+      display: block;
+      margin: 0 auto;
+      border-top: double 5px;
+      border-top-color: #494949; }
+    header h1.homeHeader::before {
+      margin-bottom: 3.125rem; }
+    header h1.homeHeader::after {
+      margin-top: 3.125rem; }
+    header h1.articleHeader {
+      margin-bottom: 0.5rem; }
+      header h1.articleHeader::after {
+        content: "";
+        display: block;
+        margin: 0 auto;
+        border-top: solid 5px;
+        border-top-color: #494949; }
+      header h1.articleHeader::after {
+        margin-top: 1rem; }
+  header .star {
+    float: right; }
+  header .view {
+    float: right; }
+
+.star {
+  display: inline-block;
+  margin: 0 0.2rem; }
+
+.view {
+  display: inline-block;
+  margin: 0 0.2rem; }
+
+.star::before {
+  content: "";
+  background-image: url("/images/starIcon.svg");
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 1rem;
+  height: 0.8rem;
+  margin: auto; }
+
+.view::before {
+  content: "";
+  background-image: url("/images/viewIcon.svg");
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 1rem;
+  height: 0.5rem;
+  margin: auto; }
+
+article {
+  margin: 5rem 0; }
+
+footer {
+  margin: 5rem -3rem 0; }
+  footer ul {
+    display: flex;
+    flex-direction: row; }
+    footer ul li {
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: row;
+      flex: 1 0 0;
+      height: 14rem; }
+      footer ul li:nth-child(1) {
+        background-color: #5f5c5d; }
+      footer ul li:nth-child(2) {
+        background-color: #a7a4a5; }
+      footer ul li:nth-child(3) {
+        background-color: #eae6e2; }
+      footer ul li img {
+        height: 8rem; }

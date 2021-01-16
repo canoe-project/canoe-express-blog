@@ -1,5 +1,33 @@
 extends readLayout.pug
 
-block button
+block button 
     .menuButton
     .menu
+block header
+    header
+        h1.articleHeader= title
+        .view= view
+        .star= star
+block mainContents
+    section.cotent
+        article
+            .articleContant= contents
+block recommenArticle
+    footer
+        ul
+            li
+                img(src="../article_image/753a9d3b0b91d14971545a0a40431fc8d51bb07d.jpg", alt="") 
+                .contentsContainer
+                    .headCopy 
+                    .contents 
+            li
+                img(src="../article_image/1920x1080-small-memory-4k_1540749683.jpg", alt="") 
+                .contentsContainer
+                    .headCopy
+                    .contents
+            li
+                img(src="../article_image/730404fbdc22ace45cfecaf742d9d842a3a8b596.jpg", alt="") 
+                .contentsContainer
+                    .headCopy 
+                    .contents
+        

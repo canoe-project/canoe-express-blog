@@ -1,0 +1,27 @@
+.star {
+  display: inline-block;
+  margin: 0 0.2rem;
+}
+.view {
+  display: inline-block;
+  margin: 0 0.2rem;
+}
+.star::before {
+  content: "";
+  background-image: url("/images/starIcon.svg");
+  background-repeat: no-repeat;
+  display: inline-block;
+
+  width: 1rem;
+  height: 0.8rem;
+  margin: auto;
+}
+.view::before {
+  content: "";
+  background-image: url("/images/viewIcon.svg");
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 1rem;
+  height: 0.5rem;
+  margin: auto;
+}

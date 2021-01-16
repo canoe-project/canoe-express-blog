@@ -1,0 +1,15 @@
+#picture > .contentBox {
+  ul {
+    // width: auto;
+    flex-direction: row;
+    li {
+      white-space: nowrap;
+      display: flex;
+      padding: 0rem 0.5rem;
+    }
+  }
+}
+.picture {
+  flex: auto;
+  height: 8.5rem;
+}

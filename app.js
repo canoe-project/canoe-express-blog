@@ -2,9 +2,12 @@ const express = require("express");
 const app = express();
 const indexRouter = require("./routes/index.js");
 const informationRouter = require("./routes/information.js");
-const uploaderRouter = require("./routes/uploader.js");
+const readRouter = require("./routes/read.js");
+const managerRouter = require("./routes/manager.js");
 const bodyParser = require("body-parser");
+var cors = require("cors");
 
+app.use(cors());
 app.use(express.static("./assets/fileData/Notice"));
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -13,7 +16,8 @@ app.set("view engine", "pug");
 
 app.use("/", indexRouter);
 app.use("/information", informationRouter);
-app.use("/uploader", uploaderRouter);
+app.use("/read", readRouter);
+app.use("/manager", managerRouter);
 
 app.use(function (req, res, next) {
   res.status(404).send("Sorry cant find that!");

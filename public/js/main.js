@@ -7,24 +7,79 @@
     $document = $("document"),
     $intro = $("#intro"),
     $snsToggle = $(".snsToggle"),
-    $itemList = $(".snsitemList"),
-    $snsButton = $(".snsButton");
+    $itemList = $(".snsitemList");
 
   var noticePost = $.post("/information/notice"),
     writingPost = $.post("/information/writing"),
     introPost = $.post("/information/introText"),
     picturePost = $.post("/information/picture");
 
+  var recentPost = $.post("/information/recentPostList", {
+    type: "recentPostList",
+  });
+
   var scrollAmount = 20;
-  $document.ready(() => {
-    $.when(noticePost, writingPost, picturePost, introPost).done(
-      (notice, writing, picture, intro) => {
-        $notice.children(".contentBox").children("ul").append(notice[0]);
-        $writing.children(".contentBox").children("ul").append(writing[0]);
-        $picture.children(".contentBox").children("ul").append(picture[0]);
-        $intro.append(JSON.parse(intro[0]).content);
-      }
-    );
+  // $document.ready(() => {
+  //   $.when(noticePost, writingPost, picturePost, introPost).done(
+  //     (notice, writing, picture, intro) => {
+  //       $notice.children(".contentBox").children("ul").append(notice[0]);
+  //       $writing.children(".contentBox").children("ul").append(writing[0]);
+  //       $picture.children(".contentBox").children("ul").append(picture[0]);
+  //       $intro.append(JSON.parse(intro[0]).content);
+  //     }
+  //   );
+  // });
+
+  $(() => {
+    $.when(recentPost).done((recentPost) => {
+      console.log(recentPost);
+      recentPost.forEach((element) => {
+        switch (element.category) {
+          case "notice":
+            $notice.children(".contentBox").children("ul").append(
+              `<li>
+                <a href="/read/${element._id}">${element.title}</a><span>${element.date}</span>
+              </li>`
+            );
+            break;
+          case "writing":
+            $writing
+              .children(".contentBox")
+              .children("ul")
+              .append(
+                `<li>
+                  <div class="headCopy">
+                    <h3>${element.title}</h3>
+                    <div class="imfomation">
+                      <span class="star">${element.star}</span>
+                      <span class="view">${element.views}</span>
+                    </div> 
+                  </div>
+                  <div class="contentBody">
+                    <img class="blockContentImg" src="${element.thumbnail}">
+                    <div class="blockContent">${element.content.substr(
+                      0,
+                      50
+                    )}</div>
+                  </div>
+                  <div class="blocDate">
+                  ${element.date.toISOString().substring(0, 10)}
+                  </div>
+                </li>`
+              );
+            break;
+          case "picture":
+            $picture.children(".contentBox").children("ul").append(
+              `<li>
+                <img 
+                  class="picture" src="${element.thumbnail}">
+              </li>`
+            );
+            break;
+          default:
+        }
+      });
+    });
   });
   $(window).on("load", () => {
     $notice
@@ -47,6 +102,10 @@
   $snsToggle.hover(() => {
     $itemList.toggleClass("is-active");
   });
+
+  $.fn.contentsLoader = function () {
+    $(this).on("click", () => {});
+  };
 
   $.fn.menuToggleButton = function () {
     $(this).on("click", () => {

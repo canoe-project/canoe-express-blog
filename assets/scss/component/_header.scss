@@ -1,0 +1,49 @@
+header {
+  padding: 0 8rem;
+  h1 {
+    font-size: 4.375em;
+    text-align: center;
+    margin: 5.5rem auto;
+
+    &.homeHeader {
+      &::before,
+      &::after {
+        content: "";
+
+        display: block;
+
+        margin: 0 auto;
+        border-top: double 5px;
+        border-top-color: #494949;
+      }
+
+      &::before {
+        margin-bottom: 3.125rem;
+      }
+      &::after {
+        margin-top: 3.125rem;
+      }
+    }
+    &.articleHeader {
+      margin-bottom: 0.5rem;
+      &::after {
+        content: "";
+
+        display: block;
+
+        margin: 0 auto;
+        border-top: solid 5px;
+        border-top-color: #494949;
+      }
+      &::after {
+        margin-top: 1rem;
+      }
+    }
+  }
+  .star {
+    float: right;
+  }
+  .view {
+    float: right;
+  }
+}

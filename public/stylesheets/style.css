@@ -55,29 +55,47 @@ input, select, textarea {
 
 #wrapper {
   display: flex;
+  height: 100%;
   flex-direction: column;
-  border-color: #c1a68b;
-  border-top-right-radius: 3rem;
-  border-top-left-radius: 3rem;
-  border-top-width: 3rem;
-  border-right-width: 1.5rem;
-  border-left-width: 1.5rem;
-  border-style: solid;
+  position: relative;
   background-color: #ffffff;
+  top: 69.5px;
   padding: 5rem 3rem 0;
-  margin: 25rem 8rem 0; }
+  margin: 0px 8rem 0; }
+
+#accessory {
+  width: 648px;
+  height: 187px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-repeat: no-repeat;
+  background-image: url("/images/clip.svg");
+  position: absolute;
+  z-index: 1; }
+
+article {
+  display: flex;
+  padding: 0 8rem; }
+
+body {
+  background-color: #28313f; }
+
+html {
+  height: 100%; }
 
 .container {
   display: flex;
   flex: auto;
   flex-direction: row;
   justify-content: center;
-  margin: 15rem 20rem; }
+  margin: 15rem 0;
+  align-items: center; }
 
 .contentBox {
   display: flex;
   flex-direction: column;
   flex: auto;
+  overflow: auto;
   margin-left: 2rem; }
   .contentBox h2 {
     font-size: 40pt;
@@ -90,7 +108,7 @@ input, select, textarea {
     flex: auto;
     height: 10rem;
     white-space: nowrap;
-    overflow-y: scroll; }
+    overflow: auto; }
     .contentBox ul::-webkit-scrollbar {
       display: none; }
     .contentBox ul li {
@@ -106,26 +124,41 @@ input, select, textarea {
   margin-right: 3rem;
   background-repeat: no-repeat; }
 
-header h1 {
-  font-size: 4.375em;
-  text-align: center;
-  margin: 6.5rem auto; }
-  header h1::before, header h1::after {
-    content: "";
-    display: block;
-    width: calc(100% - 21rem);
-    margin: 0 auto;
-    border-top: double 5px;
-    border-top-color: #494949; }
-  header h1::before {
-    margin-bottom: 3.125rem; }
-  header h1::after {
-    margin-top: 3.125rem; }
+header {
+  padding: 0 8rem; }
+  header h1 {
+    font-size: 4.375em;
+    text-align: center;
+    margin: 5.5rem auto; }
+    header h1.homeHeader::before, header h1.homeHeader::after {
+      content: "";
+      display: block;
+      margin: 0 auto;
+      border-top: double 5px;
+      border-top-color: #494949; }
+    header h1.homeHeader::before {
+      margin-bottom: 3.125rem; }
+    header h1.homeHeader::after {
+      margin-top: 3.125rem; }
+    header h1.articleHeader {
+      margin-bottom: 0.5rem; }
+      header h1.articleHeader::after {
+        content: "";
+        display: block;
+        margin: 0 auto;
+        border-top: solid 5px;
+        border-top-color: #494949; }
+      header h1.articleHeader::after {
+        margin-top: 1rem; }
+  header .star {
+    float: right; }
+  header .view {
+    float: right; }
 
 footer {
   color: white;
   height: 30rem;
-  background-color: #003333;
+  background-color: #a7a4a5;
   display: flex;
   justify-content: center;
   margin: 5rem -3rem 0; }
@@ -232,24 +265,6 @@ footer {
   text-align: center;
   margin-right: 1rem; }
 
-.star::before {
-  content: "";
-  background-image: url("/images/starIcon.svg");
-  background-repeat: no-repeat;
-  display: inline-block;
-  width: 1rem;
-  height: 0.8rem;
-  margin: auto; }
-
-.view::before {
-  content: "";
-  background-image: url("/images/viewIcon.svg");
-  display: inline-block;
-  background-repeat: no-repeat;
-  width: 1rem;
-  height: 0.5rem;
-  margin: auto; }
-
 .blocDate {
   margin-left: auto;
   margin-right: 1rem;
@@ -257,7 +272,7 @@ footer {
 
 .menuButton {
   position: relative;
-  top: 0.5rem;
+  top: -0.5rem;
   left: 0.5rem;
   width: 2.8rem;
   height: 1.8rem;
@@ -327,15 +342,38 @@ footer {
   background-repeat: no-repeat; }
 
 #picture > .contentBox ul {
-  width: 49.6rem;
-  flex-direction: row;
-  overflow-y: hidden;
-  overflow-x: scroll; }
+  flex-direction: row; }
   #picture > .contentBox ul li {
+    white-space: nowrap;
     display: flex;
     padding: 0rem 0.5rem; }
 
 .picture {
   flex: auto;
-  height: 8.5rem;
-  width: auto; }
+  height: 8.5rem; }
+
+.star {
+  display: inline-block;
+  margin: 0 0.2rem; }
+
+.view {
+  display: inline-block;
+  margin: 0 0.2rem; }
+
+.star::before {
+  content: "";
+  background-image: url("/images/starIcon.svg");
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 1rem;
+  height: 0.8rem;
+  margin: auto; }
+
+.view::before {
+  content: "";
+  background-image: url("/images/viewIcon.svg");
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 1rem;
+  height: 0.5rem;
+  margin: auto; }
