@@ -2,6 +2,9 @@ const { MongoClient } = require("mongodb");
 const uri = "mongodb://localhost:27017/blog"; //데이터베이스 주소
 var ObjectId = require("mongodb").ObjectID;
 
+const moment = require("moment");
+require("moment-timezone");
+moment.tz.setDefault("Asia/Seoul");
 /*몽고 데이터 베이스에 접근하기 위한 클라이언트 객체의 프로미스를 전달한다.*/
 const creatClient = async () => {
   return new Promise(async (resolve, reject) => {
@@ -93,15 +96,18 @@ const readComment = async (type) => {
 /*클라이언트에서 작성한 포스터를 기반으로 데이터베이스에 도큐먼트를 전달하는 메소드*/
 
 /*추가 사항 카테고리에 따라 다르게 저장 되도록 값을 전달받고 처리하자*/
-const creatPost = async (newListings, category) => {
+const creatPost = async (newListings) => {
   return creatClient()
-    .then((client) => {
+    .then(async (client) => {
+      newListings.star = 0;
+      newListings.views = 0;
+      newListings.date = moment().toDate();
       return client.connect();
     })
     .then(async (client) => {
       return client
-        .db("blog_post")
-        .collection(category)
+        .db("blog")
+        .collection("article")
         .insertOne(newListings)
         .then((result) => {
           client.close();

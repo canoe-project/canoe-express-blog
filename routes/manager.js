@@ -1,6 +1,9 @@
+const { json } = require("body-parser");
 var express = require("express");
 var mongodb = require("../mongodb.js");
 var router = express.Router();
+
+
 
 /* GET users listing. */
 
@@ -15,7 +18,8 @@ var router = express.Router();
 // });
 
 router.post("/createPost", async (req, res) => {
-  res.json(await mongodb.creatPost(res.body.post, res.body.category));
+
+  res.json(await mongodb.creatPost(req.body));
 });
 
 router.post("/home", async (req, res) => {
